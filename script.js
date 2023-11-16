@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Mettre à jour la couleur toutes les 1 seconde (1000 millisecondes)
-        setInterval(colorchanged, 1000);
+        setInterval(colorchanged, 10);
 
         // Appeler la fonction une fois au chargement de la page
         colorchanged();

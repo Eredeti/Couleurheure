@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
     // Mettre à jour le message toutes les 1 secondes (1000 millisecondes)
-    setInterval(colorchanged, 10);
+    setInterval(colorchanged, 1000);
 
     // Appeler la fonction une fois au chargement de la page
     colorchanged();

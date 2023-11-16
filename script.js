@@ -3,47 +3,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Utiliser une fonction auto-exécutante pour encapsuler les variables
     (function() {
-        var hexrouge = 0xFF;
-        var hexvert = 0x00;
-        var hexbleu = 0x00;
+        var rouge = 255;
+        var vert = 0;
+        var bleu = 0;
 
         function colorchanged() {
             // Mettre à jour les valeurs en fonction de certaines conditions
-            if (hexrouge === 0xFF && hexvert < 0xFF && hexbleu === 0xFF) {
-                hexvert = hexvert + 0x10;
+            if (rouge === 255 && vert < 255 && bleu === 0) {
+                vert = vert + 1;
             }
-            if (hexrouge > 0x00 && hexvert === 0xFF && hexbleu === 0xFF) {
-                hexrouge = hexrouge - 0x10;
+            if (rouge > 0 && vert === 255 && bleu === 0) {
+                rouge = rouge - 1;
             }
-            if (hexrouge === 0x00 && hexvert === 0xFF && hexbleu < 0xFF) {
-                hexbleu = hexbleu + 0x10;
+            if (rouge === 0 && vert === 255 && bleu < 255) {
+                bleu = bleu + 1;
             }
-            if (hexrouge === 0x00 && hexvert > 0x00 && hexbleu === 0xFF) {
-                hexvert = hexvert - 0x10;
+            if (rouge === 0 && vert > 0 && bleu === 255) {
+                vert = vert - 1;
             }
-            if (hexrouge < 0xFF && hexvert === 0x00 && hexbleu === 0xFF) {
-                hexrouge = hexrouge + 0x10;
+            if (rouge < 255 && vert === 0 && bleu === 255) {
+                rouge = rouge + 1;
             }
-            if (hexrouge === 0xFF && hexvert === 0x00 && hexbleu > 0x00) {
-                hexbleu = hexbleu - 0x10;
+            if (rouge === 255 && vert === 0 && bleu > 0) {
+                bleu = bleu - 1;
             }
 
             // Afficher les valeurs dans la console pour le débogage
-            console.log("Rouge: " + hexrouge.toString(16));
-            console.log("Vert: " + hexvert.toString(16));
-            console.log("Bleu: " + hexbleu.toString(16));
+            console.log("Rouge: " + rouge.toString(16));
+            console.log("Vert: " + vert.toString(16));
+            console.log("Bleu: " + bleu.toString(16));
 
-            // Construire la couleur hexadécimale finale
-            var hexcouleur = "#" +
-                ("00" + hexrouge.toString(16)).slice(-2) +
-                ("00" + hexvert.toString(16)).slice(-2) +
-                ("00" + hexbleu.toString(16)).slice(-2);
+            // Construire la couleur adécimale finale
+            var couleurRGB = "rgb(" + red + ", " + green + ", " + blue + ")";
 
             // Afficher la couleur dans la console pour le débogage
-            console.log("Couleur: " + hexcouleur);
+            console.log("Couleur: " + couleurRGB);
 
             // Appliquer la couleur de fond
-            document.body.style.backgroundColor = hexcouleur;
+            document.body.style.backgroundColor = couleurRGB;
         }
 
         // Mettre à jour la couleur toutes les 1 seconde (1000 millisecondes)

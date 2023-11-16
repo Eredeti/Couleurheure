@@ -9,9 +9,24 @@ document.addEventListener("DOMContentLoaded", function() {
     
         function colorchanged() {
             // Mettre à jour les valeurs en fonction de certaines conditions
-            hexrouge = (hexrouge + 0x10) % 0x100;
-            hexvert = (hexvert + 0x10) % 0x100;
-            hexbleu = (hexbleu + 0x10) % 0x100;
+            if (hexrouge === 0xFF && hexvert < 0xFF && hexbleu === 0xFF) {
+                hexvert = hexvert + 0x10;
+            }
+            if (hexrouge > 0x00 && hexvert === 0xFF && hexbleu === 0xFF) {
+                hexrouge = hexrouge - 0x10;
+            }
+            if (hexrouge === 0x00 && hexvert === 0xFF && hexbleu < 0xFF) {
+                hexbleu = hexbleu + 0x10;
+            }
+            if (hexrouge === 0x00 && hexvert > 0x00 && hexbleu === 0xFF) {
+                hexvert = hexvert - 0x10;
+            }
+            if (hexrouge < 0xFF && hexvert === 0x00 && hexbleu === 0xFF) {
+                hexrouge = hexrouge + 0x10;
+            }
+            if (hexrouge === 0xFF && hexvert === 0x00 && hexbleu > 0x00) {
+                hexbleu = hexbleu - 0x10;
+            }
     
             // Afficher les valeurs dans la console pour le débogage
             console.log("Rouge: " + hexrouge.toString(16));

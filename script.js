@@ -4,18 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var hexvert = 0xFF;
     var hexbleu = 0xFF;
     
-    function updateMessage() {
-        var currentSecond = new Date().getSeconds();
-
-        if (currentSecond < 20) {
-            dynamicContent.innerHTML = "0-20 <br>" + currentSecond;
-        } else if (currentSecond < 40) {
-            dynamicContent.innerHTML = "20-40 <br>" + currentSecond;
-        } else {
-            dynamicContent.innerHTML = "40-60 <br>" + currentSecond;
-        }
-    }
-
   function colorchanged() {
     // Définir les valeurs hexadécimales initiales
 

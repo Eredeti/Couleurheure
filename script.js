@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     var dynamicContent = document.getElementById("dynamicContent");
-
+    var hexrouge = 0xFF;
+    var hexvert = 0xFF;
+    var hexbleu = 0xFF;
+    
     function updateMessage() {
         var currentSecond = new Date().getSeconds();
 
@@ -13,18 +16,35 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    function colorchanged() {
-        var currentSecond = new Date().getSeconds();
-        var body = document.body;
+  function colorchanged() {
+    // Définir les valeurs hexadécimales initiales
 
-        if (currentSecond === 20) {
-            body.style.backgroundColor = "#FF0000";
-        } else if (currentSecond === 40) {
-            body.style.backgroundColor = "#00FF00";
-        } else if (currentSecond === 0) {
-            body.style.backgroundColor = "#0000FF";
-        }
+    // Mettre à jour les valeurs en fonction de certaines conditions
+    if (hexrouge === 0xFF && hexvert < 0xFF && hexbleu === 0xFF) {
+        hexvert = hexvert + 0x10;
     }
+    if (hexrouge > 0x00 && hexvert === 0xFF && hexbleu === 0xFF) {
+        hexrouge = hexrouge - 0x10;
+    }
+    if (hexrouge === 0x00 && hexvert === 0xFF && hexbleu < 0xFF) {
+        hexbleu = hexbleu + 0x10;
+    }
+    if (hexrouge === 0x00 && hexvert > 0x00 && hexbleu === 0xFF) {
+        hexvert = hexvert - 0x10;
+    }
+    if (hexrouge < 0xFF && hexvert === 0x00 && hexbleu === 0xFF) {
+        hexrouge = hexrouge + 0x10;
+    }
+    if (hexrouge === 0xFF && hexvert === 0x00 && hexbleu > 0x00) {
+        hexbleu = hexbleu - 0x10;
+    }
+
+    // Construire la couleur hexadécimale finale
+    var hexcouleur = "#" + hexrouge.toString(16) + hexvert.toString(16) + hexbleu.toString(16);
+
+    // Appliquer la couleur de fond
+    document.body.style.backgroundColor = hexcouleur;
+}
 
     // Mettre à jour le message toutes les 1 secondes (1000 millisecondes)
     setInterval(updateMessage, 1000);

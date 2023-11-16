@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     var dynamicContent = document.getElementById("dynamicContent");
     var hexrouge = 0xFF;
-    var hexvert = 0xFF;
-    var hexbleu = 0xFF;
+    var hexvert = 0x00;
+    var hexbleu = 0x00;
     
   function colorchanged() {
     // Définir les valeurs hexadécimales initiales
@@ -35,10 +35,8 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
     // Mettre à jour le message toutes les 1 secondes (1000 millisecondes)
-    setInterval(updateMessage, 1000);
-    setInterval(colorchanged, 1000);
+    setInterval(colorchanged, 10);
 
     // Appeler la fonction une fois au chargement de la page
-    updateMessage();
     colorchanged();
 });

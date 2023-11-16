@@ -10,22 +10,22 @@ document.addEventListener("DOMContentLoaded", function() {
         function colorchanged() {
             // Mettre à jour les valeurs en fonction de certaines conditions
             if (hexrouge === 0xFF && hexvert < 0xFF && hexbleu === 0xFF) {
-                hexvert = hexvert + 0x10;
+                hexvert = hexvert + 0x01;
             }
             if (hexrouge > 0x00 && hexvert === 0xFF && hexbleu === 0xFF) {
-                hexrouge = hexrouge - 0x10;
+                hexrouge = hexrouge - 0x01;
             }
             if (hexrouge === 0x00 && hexvert === 0xFF && hexbleu < 0xFF) {
-                hexbleu = hexbleu + 0x10;
+                hexbleu = hexbleu + 0x01;
             }
             if (hexrouge === 0x00 && hexvert > 0x00 && hexbleu === 0xFF) {
-                hexvert = hexvert - 0x10;
+                hexvert = hexvert - 0x01;
             }
             if (hexrouge < 0xFF && hexvert === 0x00 && hexbleu === 0xFF) {
-                hexrouge = hexrouge + 0x10;
+                hexrouge = hexrouge + 0x01;
             }
             if (hexrouge === 0xFF && hexvert === 0x00 && hexbleu > 0x00) {
-                hexbleu = hexbleu - 0x10;
+                hexbleu = hexbleu - 0x01;
             }
     
             // Afficher les valeurs dans la console pour le débogage

@@ -43,13 +43,16 @@ document.addEventListener("DOMContentLoaded", function() {
     })();
 
     function updateMessage() {
-        var currentSecond = new Date().getSeconds();
-        var colorValue = Math.round((currentSecond / 60) * 255); // Calculer la valeur de couleur de 0 à 255
-
-        dynamicContent.innerHTML = "0-60 <br>" + currentSecond;
-
-        var body = document.body;
-        body.style.backgroundColor = "rgb(" + colorValue + ", 100, 100)"; // Utiliser une couleur rouge avec une composante verte et bleue fixes
+        var dynamicContent = document.getElementById("dynamicContent");
+        var currentSeconds = new Date().getSeconds();
+    
+        if (currentSeconds < 20) {
+            dynamicContent.innerHTML = "Bonjour !";
+        } else if (currentSeconds < 40) {
+            dynamicContent.innerHTML = "Bon après-midi !";
+        } else {
+            dynamicContent.innerHTML = "Bonne soirée !";
+        }
     }
 
     // Mettre à jour le message toutes les 1 secondes (1000 millisecondes)

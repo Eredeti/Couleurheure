@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("Bleu: " + bleu.toString(16));
 
             // Construire la couleur adécimale finale
-            var couleurRGB = "rgb(" + red + ", " + green + ", " + blue + ")";
+            var couleurRGB = "rgb(" + rouge + ", " + vert + ", " + bleu + ")";
 
             // Afficher la couleur dans la console pour le débogage
             console.log("Couleur: " + couleurRGB);

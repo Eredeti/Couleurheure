@@ -34,7 +34,10 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("Bleu: " + hexbleu.toString(16));
     
             // Construire la couleur hexadécimale finale
-            var hexcouleur = "#" + hexrouge.toString(16) + hexvert.toString(16) + hexbleu.toString(16);
+            var hexcouleur = "#" +
+                ("00" + hexrouge.toString(16)).slice(-2) +
+                ("00" + hexvert.toString(16)).slice(-2) +
+                ("00" + hexbleu.toString(16)).slice(-2);
     
             // Afficher la couleur dans la console pour le débogage
             console.log("Couleur: " + hexcouleur);
